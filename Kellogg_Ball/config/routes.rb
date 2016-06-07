@@ -1,5 +1,40 @@
 Rails.application.routes.draw do
 
+  # Routes for the Game resource:
+  # CREATE
+  get "/games/new", :controller => "games", :action => "new"
+  post "/create_game", :controller => "games", :action => "create"
+
+  # READ
+  get "/games", :controller => "games", :action => "index"
+  get "/games/:id", :controller => "games", :action => "show"
+
+  # UPDATE
+  get "/games/:id/edit", :controller => "games", :action => "edit"
+  post "/update_game/:id", :controller => "games", :action => "update"
+
+  # DELETE
+  get "/delete_game/:id", :controller => "games", :action => "destroy"
+  #------------------------------
+
+  # Routes for the Playersgame resource:
+  # CREATE
+  get "/playersgames/new", :controller => "playersgames", :action => "new"
+  post "/create_playersgame", :controller => "playersgames", :action => "create"
+
+  # READ
+  get "/playersgames", :controller => "playersgames", :action => "index"
+  get "/playersgames/:id", :controller => "playersgames", :action => "show"
+
+  # UPDATE
+  get "/playersgames/:id/edit", :controller => "playersgames", :action => "edit"
+  post "/update_playersgame/:id", :controller => "playersgames", :action => "update"
+
+  # DELETE
+  get "/delete_playersgame/:id", :controller => "playersgames", :action => "destroy"
+  #------------------------------
+
+  devise_for :players
 # root 'games#index'
 
 

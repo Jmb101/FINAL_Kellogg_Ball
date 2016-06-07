@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h3>Playersgame #<%= @playersgame.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Game</dt>
+      <dd><%= @playersgame.game_id %></dd>
+
+      <dt>Player</dt>
+      <dd><%= @playersgame.player_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/playersgames" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/playersgames/<%= @playersgame.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_playersgame/<%= @playersgame.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
