@@ -1,15 +1,15 @@
 <!-- Validation failure messages -->
 <% if @playersgame.errors.any? %>
-  <% @playersgame.errors.full_messages.each do |message| %>
-    <div class="alert alert-dismissable alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= message %>
-    </div>
-  <% end %>
+<% @playersgame.errors.full_messages.each do |message| %>
+<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <%= message %>
+</div>
+<% end %>
 <% end %>
 
 <div class="page-header">
-  <h3>Add Playersgame</h3>
+  <h3>Sign up for a game</h3>
 </div>
 
 <div class="row">
@@ -19,33 +19,33 @@
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
       <!-- Label and input for game_id -->
-      <div class="form-group">
-        <label for="game_id" class="control-label">
-          Game
-        </label>
+      <label for="game_id" class="control-label">
+        Games
+      </label>
+      <%= select_tag(:game, options_from_collection_for_select(Game.all, :datetime, :datetime, @playersgame.game_id ), :class => "form-control") %>
+      <input type="text" id="game_id" name="game_id" placeholder="Game" class="form-control" value="<%= @playersgame.game_id %>">
 
-        <input type="text" id="game_id" name="game_id" placeholder="Game" class="form-control" value="<%= @playersgame.game_id %>">
-      </div>
 
       <!-- Label and input for player_id -->
       <div class="form-group">
         <label for="player_id" class="control-label">
           Player
         </label>
+          <p>
+            Reminder: Your UserID is <%=current_user.id%>
 
-        <input type="text" id="player_id" name="player_id" placeholder="Player" class="form-control" value="<%= @playersgame.player_id %>">
+                <input type="text" id="player_id" name="player_id" placeholder="Enter your user ID here" class="form-control" value="<%= @playersgame.player_id %>">
+          </p>
+
       </div>
 
-      <button class="btn btn-success">
-        Create Playersgame
-      </button>
+        <a href="/" class="btn btn-success">Sign up</a>
+
+      <!-- <button class="btn btn-success">
+        Sign up
+      </button> -->
       or
       <a href="/playersgames">Cancel</a>
     </form>
   </div>
 </div>
-
-<label for="game_id" class="control-label">
-  Director
-</label>
-  <%= select_tag(:game, options_from_collection_for_select(Game.all, :datetime, :datetime), :class => "form-control") %>
