@@ -44,3 +44,8 @@
     </form>
   </div>
 </div>
+
+<label for="game_id" class="control-label">
+  Director
+</label>
+  <%= select_tag(:game, options_from_collection_for_select(Game.all, :datetime, :datetime), :class => "form-control") %>

@@ -1,11 +1,11 @@
 <!-- Validation failure messages -->
 <% if @game.errors.any? %>
-  <% @game.errors.full_messages.each do |message| %>
-    <div class="alert alert-dismissable alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= message %>
-    </div>
-  <% end %>
+<% @game.errors.full_messages.each do |message| %>
+<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <%= message %>
+</div>
+<% end %>
 <% end %>
 
 <div class="page-header">
@@ -21,8 +21,21 @@
       <!-- Label and input for datetime -->
       <div class="form-group">
         <label for="datetime" class="control-label">
-          Datetime
+          Time and Date
         </label>
+
+        <!-- <div class='input-group date' id='datetime'>
+          <input type='text' class="form-control" name="held_on" id="datetime">
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+
+        <script type="text/javascript">
+        $(function () {
+          $('#datetime').datetimepicker();
+        });
+        </script> -->
 
         <input type="text" id="datetime" name="datetime" placeholder="Datetime" class="form-control" value="<%= @game.datetime %>">
       </div>
@@ -33,7 +46,7 @@
           Location
         </label>
 
-        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="<%= @game.location %>">
+        <input type="text" id="location" name="location" placeholder="e.g. The Quist" class="form-control" value="<%= @game.location %>">
       </div>
 
       <button class="btn btn-success">

@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+gem 'chronic'
+
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
+
 #Starter Gen gem
 gem "starter_generators", :git => "http://github.com/raghubetina/starter_generators.git"
 

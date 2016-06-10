@@ -1,4 +1,13 @@
 class GamesController < ApplicationController
+
+
+  def create
+    @event = Event.new
+    @event.title = params[:title]
+    @event.held_on = Chronic.parse(params[:held_on])
+    @event.save
+  end
+
   def index
     @games = Game.all
   end
